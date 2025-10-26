@@ -1,0 +1,17 @@
+.leaderboard-container {
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.leaderboard-container button {
+  margin: 20px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}

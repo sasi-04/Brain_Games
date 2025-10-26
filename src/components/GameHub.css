@@ -1,0 +1,124 @@
+.gamehub-container {
+  min-height: 100vh;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gamehub-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 243, 255, 0.5);
+}
+
+.gamehub-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 243, 255, 0.3);
+}
+
+.game-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.game-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.game-card p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.game-difficulty {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+.game-result-banner {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #00ff88, #00f3ff);
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.game-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 15px;
+  background: rgba(0, 255, 136, 0.2);
+  border: 1px solid #00ff88;
+  border-radius: 15px;
+  color: #00ff88;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.coming-soon-notice {
+  margin-top: 40px;
+  padding: 25px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}

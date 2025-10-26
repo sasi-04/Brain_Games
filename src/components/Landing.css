@@ -1,0 +1,47 @@
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at top, #1a0a2e 0%, #0a0a0f 100%);
+}
+
+.landing-content {
+  text-align: center;
+  padding: 40px;
+}
+
+.landing-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+}
+
+.landing-subtitle {
+  font-size: 1.5rem;
+  color: #00f3ff;
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+}
+
