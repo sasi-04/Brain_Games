@@ -10,9 +10,12 @@ const ShuttleTableGame = ({ onComplete, soundEnabled }) => {
   const [gameActive, setGameActive] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [difficulty, setDifficulty] = useState(null);
+  const [showDifficultySelect, setShowDifficultySelect] = useState(true);
 
   const generateNumbers = () => {
-    const nums = Array.from({ length: 30 }, (_, i) => i + 1);
+    const maxNumber = difficulty === 'easy' ? 15 : difficulty === 'medium' ? 30 : 50;
+    const nums = Array.from({ length: maxNumber }, (_, i) => i + 1);
     for (let i = nums.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [nums[i], nums[j]] = [nums[j], nums[i]];
@@ -20,13 +23,15 @@ const ShuttleTableGame = ({ onComplete, soundEnabled }) => {
     return nums;
   };
 
-  const startGame = () => {
+  const startGame = (selectedDifficulty) => {
+    setDifficulty(selectedDifficulty);
     setNumbers(generateNumbers());
     setCurrentNumber(1);
     setScore(0);
-    setTimeLeft(20);
+    setTimeLeft(selectedDifficulty === 'easy' ? 30 : selectedDifficulty === 'medium' ? 20 : 15);
     setGameActive(true);
     setGameOver(false);
+    setShowDifficultySelect(false);
     setFeedback('');
   };
 
@@ -91,9 +96,24 @@ const ShuttleTableGame = ({ onComplete, soundEnabled }) => {
       <div className="game-start-screen">
         <motion.div className="game-start-card" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <h2>Shuttle Table Game</h2>
-          <p>Click numbers from 1 to 30 as fast as possible!</p>
-          <p className="game-instruction">Speed + Accuracy = High IQ</p>
-          <button className="btn-primary" onClick={startGame}>START GAME</button>
+          <p>Choose your difficulty level:</p>
+          <div className="difficulty-buttons">
+            <button className="difficulty-btn easy" onClick={() => startGame('easy')}>
+              <h3>Easy</h3>
+              <p>30 seconds<br/>Numbers 1-15</p>
+            </button>
+            <button className="difficulty-btn medium" onClick={() => startGame('medium')}>
+              <h3>Medium</h3>
+              <p>20 seconds<br/>Numbers 1-30</p>
+            </button>
+            <button className="difficulty-btn hard" onClick={() => startGame('hard')}>
+              <h3>Hard</h3>
+              <p>15 seconds<br/>Numbers 1-50</p>
+            </button>
+          </div>
+          <button className="btn-secondary" onClick={() => onComplete({ game: 'Shuttle Table', score: 0, iq: 0, time: 0, action: 'back' })}>
+            ← Back to Games
+          </button>
         </motion.div>
       </div>
     );
@@ -102,8 +122,11 @@ const ShuttleTableGame = ({ onComplete, soundEnabled }) => {
   return (
     <div className="shuttle-game-container">
       <div className="game-header">
+        <button className="back-btn" onClick={() => onComplete({ game: 'Shuttle Table', score: 0, iq: 0, time: 0, action: 'back' })}>
+          ← Back
+        </button>
         <div className="game-timer">
-          <motion.div className="timer-circle" animate={{ rotate: [0, 360] }} transition={{ duration: 20, ease: "linear" }}>
+          <motion.div className="timer-circle" animate={{ rotate: [0, 360] }} transition={{ duration: timeLeft, ease: "linear" }}>
             <div className="timer-text">{timeLeft}</div>
           </motion.div>
         </div>
@@ -114,8 +137,8 @@ const ShuttleTableGame = ({ onComplete, soundEnabled }) => {
             <span className="stat-value">{score}</span>
           </div>
           <div className="stat">
-            <span className="stat-label">Target</span>
-            <span className="stat-value">{currentNumber}/30</span>
+            <span className="stat-label">Level</span>
+            <span className="stat-value">{difficulty?.charAt(0).toUpperCase() + difficulty?.slice(1)}</span>
           </div>
         </div>
       </div>

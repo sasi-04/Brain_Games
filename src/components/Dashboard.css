@@ -15,7 +15,7 @@
 .dashboard-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,8 +61,8 @@
 
 .dashboard-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(0, 243, 255, 0.5);
-  box-shadow: 0 20px 60px rgba(0, 243, 255, 0.3);
+  border-color: rgba(255, 107, 53, 0.5);
+  box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
 }
 
 .stats-card {
@@ -72,7 +72,7 @@
 .level-number {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -96,7 +96,7 @@
 
 .xp-fill {
   height: 100%;
-  background: linear-gradient(90deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(90deg, #ff6b35, #f7931e);
   border-radius: 10px;
 }
 
@@ -146,7 +146,7 @@
 
 .card-icon {
   font-size: 3rem;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -165,7 +165,7 @@
 }
 
 .card-button {
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   border: none;
   padding: 12px 25px;
   border-radius: 10px;
@@ -177,5 +177,5 @@
 
 .card-button:hover {
   transform: translateX(5px);
-  box-shadow: 0 5px 20px rgba(0, 243, 255, 0.4);
+  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
 }

@@ -8,10 +8,11 @@
 .profile-container button {
   margin: 20px;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   border: none;
   border-radius: 10px;
   color: white;
   font-weight: 600;
   cursor: pointer;
 }
+

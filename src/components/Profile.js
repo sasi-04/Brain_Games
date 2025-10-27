@@ -12,3 +12,4 @@ const Profile = ({ user, setCurrentView, soundEnabled }) => {
 };
 
 export default Profile;
+

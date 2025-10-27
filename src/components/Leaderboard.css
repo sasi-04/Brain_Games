@@ -5,13 +5,40 @@
   text-align: center;
 }
 
+.leaderboard-container h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 30px;
+}
+
+.leaderboard-container p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
 .leaderboard-container button {
   margin: 20px;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   border: none;
   border-radius: 10px;
   color: white;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.leaderboard-container button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(247, 147, 30, 0.6);
+}
+
+
+
+
+

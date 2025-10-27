@@ -34,7 +34,7 @@
 .gamehub-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -92,7 +92,7 @@
 .game-result-banner {
   margin-bottom: 30px;
   padding: 20px;
-  background: linear-gradient(135deg, #00ff88, #00f3ff);
+  background: linear-gradient(135deg, #00ff88, #ff6b35);
   border-radius: 15px;
   text-align: center;
   color: white;

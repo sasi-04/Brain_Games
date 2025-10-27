@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(ellipse at top, #1a0a2e 0%, #0a0a0f 100%);
+  background: radial-gradient(ellipse at top, #2d1b0e 0%, #1a0a0f 100%);
 }
 
 .landing-content {
@@ -14,7 +14,7 @@
 .landing-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 4rem;
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -23,12 +23,12 @@
 
 .landing-subtitle {
   font-size: 1.5rem;
-  color: #00f3ff;
+  color: #ff6b35;
   margin-bottom: 40px;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   border: none;
   padding: 15px 40px;
   font-size: 1.2rem;
@@ -42,6 +42,7 @@
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 40px rgba(247, 147, 30, 0.6);
 }
+
 

@@ -39,67 +39,40 @@
   margin-top: 20px !important;
 }
 
-.patternmatch-container {
+.sequencerecall-container {
   padding: 40px;
   max-width: 900px;
   margin: 0 auto;
 }
 
-.difficulty-buttons {
-  display: flex;
-  gap: 20px;
-  margin: 30px 0;
-  justify-content: center;
-}
-
-.difficulty-btn {
-  padding: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s;
-  min-width: 120px;
-}
-
-.difficulty-btn:hover {
-  border-color: #00f3ff;
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
-}
-
-.difficulty-btn.easy {
-  border-color: #00ff88;
-}
-
-.difficulty-btn.medium {
-  border-color: #ffa500;
-}
-
-.difficulty-btn.hard {
-  border-color: #ff4757;
-}
-
-.pattern-display {
+.sequence-display {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.pattern-colors {
+.sequence-numbers {
   display: flex;
   gap: 15px;
   justify-content: center;
   margin: 20px 0;
 }
 
-.pattern-color {
+.sequence-number {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  background: linear-gradient(135deg, #00f3ff, #8b5cf6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
   border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
-.color-grid {
+.number-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -107,37 +80,30 @@
   margin: 0 auto;
 }
 
-.color-button {
+.number-button {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
   border: 3px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
   cursor: pointer;
   transition: all 0.3s;
 }
 
-.color-button:hover {
+.number-button:hover {
+  background: rgba(0, 243, 255, 0.2);
+  border-color: #00f3ff;
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
 }
 
-.color-button:disabled {
+.number-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.back-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 10px 20px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.back-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 .question-container {

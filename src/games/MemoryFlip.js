@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import './QuickMath.css';
+import './MemoryFlip.css';
 
-const QuickMath = ({ onComplete, soundEnabled }) => {
+const MemoryFlip = ({ onComplete, soundEnabled }) => {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(20);
   const [gameActive, setGameActive] = useState(false);
@@ -104,7 +104,7 @@ const QuickMath = ({ onComplete, soundEnabled }) => {
     setGameOver(true);
     const finalIQ = Math.floor((score * 2) / 10);
     onComplete({
-      game: 'Quick Math',
+      game: 'Memory Flip',
       score: score,
       iq: finalIQ,
       time: 20 - timeLeft
@@ -130,8 +130,8 @@ const QuickMath = ({ onComplete, soundEnabled }) => {
     return (
       <div className="game-start-screen">
         <motion.div className="game-start-card" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-          <h2>Quick Math</h2>
-          <p>Choose your difficulty level:</p>
+          <h2>Memory Flip</h2>
+          <p>Match the hidden symbols! Choose your difficulty:</p>
           <div className="difficulty-buttons">
             <button className="difficulty-btn easy" onClick={() => startGame('easy')}>
               <h3>Easy</h3>
@@ -146,7 +146,7 @@ const QuickMath = ({ onComplete, soundEnabled }) => {
               <p>15 seconds<br/>Large numbers</p>
             </button>
           </div>
-          <button className="btn-secondary" onClick={() => onComplete({ game: 'Quick Math', score: 0, iq: 0, time: 0, action: 'back' })}>
+          <button className="btn-secondary" onClick={() => onComplete({ game: 'Memory Flip', score: 0, iq: 0, time: 0, action: 'back' })}>
             ← Back to Games
           </button>
         </motion.div>
@@ -155,9 +155,9 @@ const QuickMath = ({ onComplete, soundEnabled }) => {
   }
 
   return (
-    <div className="quickmath-container">
+    <div className="memoryflip-container">
       <div className="game-header">
-        <button className="back-btn" onClick={() => onComplete({ game: 'Quick Math', score: 0, iq: 0, time: 0, action: 'back' })}>
+          <button className="back-btn" onClick={() => onComplete({ game: 'Memory Flip', score: 0, iq: 0, time: 0, action: 'back' })}>
           ← Back
         </button>
         <div className="game-timer">
@@ -229,5 +229,5 @@ const QuickMath = ({ onComplete, soundEnabled }) => {
   );
 };
 
-export default QuickMath;
+export default MemoryFlip;
 

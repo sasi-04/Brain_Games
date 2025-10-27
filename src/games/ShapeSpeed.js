@@ -231,3 +231,8 @@ const QuickMath = ({ onComplete, soundEnabled }) => {
 
 export default QuickMath;
 
+
+
+
+
+

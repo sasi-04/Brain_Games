@@ -1,35 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import './PatternMatch.css';
+import './SequenceRecall.css';
 
-const PatternMatch = ({ onComplete, soundEnabled }) => {
+const SequenceRecall = ({ onComplete, soundEnabled }) => {
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(20);
   const [gameActive, setGameActive] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [currentPattern, setCurrentPattern] = useState([]);
-  const [userPattern, setUserPattern] = useState([]);
-  const [showPattern, setShowPattern] = useState(false);
-  const [patternLength, setPatternLength] = useState(3);
+  const [sequence, setSequence] = useState([]);
+  const [userSequence, setUserSequence] = useState([]);
+  const [showingSequence, setShowingSequence] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [difficulty, setDifficulty] = useState(null);
   const [showDifficultySelect, setShowDifficultySelect] = useState(true);
 
-  const colors = ['#ff6b35', '#f7931e', '#00ff88', '#ff4757', '#8b5cf6', '#f946ff'];
-
-  const generatePattern = () => {
-    const pattern = [];
-    for (let i = 0; i < patternLength; i++) {
-      pattern.push(colors[Math.floor(Math.random() * colors.length)]);
+  const generateSequence = () => {
+    const length = difficulty === 'easy' ? 3 : difficulty === 'medium' ? 4 : 5;
+    const newSequence = [];
+    for (let i = 0; i < length; i++) {
+      newSequence.push(Math.floor(Math.random() * 9) + 1);
     }
-    setCurrentPattern(pattern);
-    setUserPattern([]);
-    setShowPattern(true);
+    setSequence(newSequence);
+    setUserSequence([]);
+    setShowingSequence(true);
     
-    // Hide pattern after showing it - difficulty affects display time
+    // Hide sequence after showing it
     const displayTime = difficulty === 'easy' ? 3000 : difficulty === 'medium' ? 2000 : 1500;
     setTimeout(() => {
-      setShowPattern(false);
+      setShowingSequence(false);
     }, displayTime);
   };
 
@@ -40,30 +38,28 @@ const PatternMatch = ({ onComplete, soundEnabled }) => {
     setGameActive(true);
     setGameOver(false);
     setShowDifficultySelect(false);
-    setPatternLength(selectedDifficulty === 'easy' ? 3 : selectedDifficulty === 'medium' ? 4 : 5);
-    generatePattern();
+    generateSequence();
   };
 
-  const handleColorClick = (color) => {
-    if (!gameActive || gameOver || showPattern) return;
+  const handleNumberClick = (number) => {
+    if (!gameActive || gameOver || showingSequence) return;
 
-    const newUserPattern = [...userPattern, color];
-    setUserPattern(newUserPattern);
+    const newUserSequence = [...userSequence, number];
+    setUserSequence(newUserSequence);
 
-    // Check if pattern matches
-    if (newUserPattern.length === currentPattern.length) {
-      const isCorrect = newUserPattern.every((color, index) => color === currentPattern[index]);
+    // Check if sequence matches
+    if (newUserSequence.length === sequence.length) {
+      const isCorrect = newUserSequence.every((num, index) => num === sequence[index]);
       
       if (isCorrect) {
         setScore(prev => prev + 10);
         setFeedback('✓ Correct!');
         setTimeout(() => {
           setFeedback('');
-          setPatternLength(prev => Math.min(prev + 1, 8));
-          generatePattern();
+          generateSequence();
         }, 1000);
       } else {
-        setFeedback('✗ Wrong Pattern!');
+        setFeedback('✗ Wrong Sequence!');
         setTimeout(() => setFeedback(''), 1000);
       }
     }
@@ -74,7 +70,7 @@ const PatternMatch = ({ onComplete, soundEnabled }) => {
     setGameOver(true);
     const finalIQ = Math.floor((score * 2) / 10);
     onComplete({
-      game: 'Pattern Match',
+      game: 'Sequence Recall',
       score: score,
       iq: finalIQ,
       time: 30 - timeLeft
@@ -100,23 +96,23 @@ const PatternMatch = ({ onComplete, soundEnabled }) => {
     return (
       <div className="game-start-screen">
         <motion.div className="game-start-card" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-          <h2>Pattern Match</h2>
+          <h2>Sequence Recall</h2>
           <p>Choose your difficulty level:</p>
           <div className="difficulty-buttons">
             <button className="difficulty-btn easy" onClick={() => startGame('easy')}>
               <h3>Easy</h3>
-              <p>45 seconds<br/>3 colors</p>
+              <p>45 seconds<br/>3 numbers</p>
             </button>
             <button className="difficulty-btn medium" onClick={() => startGame('medium')}>
               <h3>Medium</h3>
-              <p>30 seconds<br/>4 colors</p>
+              <p>30 seconds<br/>4 numbers</p>
             </button>
             <button className="difficulty-btn hard" onClick={() => startGame('hard')}>
               <h3>Hard</h3>
-              <p>20 seconds<br/>5 colors</p>
+              <p>20 seconds<br/>5 numbers</p>
             </button>
           </div>
-          <button className="btn-secondary" onClick={() => onComplete({ game: 'Pattern Match', score: 0, iq: 0, time: 0, action: 'back' })}>
+          <button className="btn-secondary" onClick={() => onComplete({ game: 'Sequence Recall', score: 0, iq: 0, time: 0, action: 'back' })}>
             ← Back to Games
           </button>
         </motion.div>
@@ -125,9 +121,9 @@ const PatternMatch = ({ onComplete, soundEnabled }) => {
   }
 
   return (
-    <div className="patternmatch-container">
+    <div className="sequencerecall-container">
       <div className="game-header">
-        <button className="back-btn" onClick={() => onComplete({ game: 'Pattern Match', score: 0, iq: 0, time: 0, action: 'back' })}>
+        <button className="back-btn" onClick={() => onComplete({ game: 'Sequence Recall', score: 0, iq: 0, time: 0, action: 'back' })}>
           ← Back
         </button>
         <div className="game-timer">
@@ -158,32 +154,34 @@ const PatternMatch = ({ onComplete, soundEnabled }) => {
       )}
 
       <div className="question-container">
-        <div className="pattern-display">
-          <h3>{showPattern ? 'Watch the Pattern!' : 'Repeat the Pattern'}</h3>
-          <div className="pattern-colors">
-            {currentPattern.map((color, index) => (
+        <div className="sequence-display">
+          <h3>{showingSequence ? 'Watch the Sequence!' : 'Repeat the Sequence'}</h3>
+          <div className="sequence-numbers">
+            {sequence.map((number, index) => (
               <motion.div
                 key={index}
-                className="pattern-color"
-                style={{ backgroundColor: color }}
-                animate={showPattern ? { scale: [1, 1.2, 1] } : {}}
-                transition={{ delay: index * 0.3, duration: 0.3 }}
-              />
+                className="sequence-number"
+                animate={showingSequence ? { scale: [1, 1.2, 1] } : {}}
+                transition={{ delay: index * 0.5, duration: 0.3 }}
+              >
+                {number}
+              </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="color-grid">
-          {colors.map((color, index) => (
+        <div className="number-grid">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
             <motion.button
-              key={index}
-              className="color-button"
-              style={{ backgroundColor: color }}
-              onClick={() => handleColorClick(color)}
-              disabled={showPattern || gameOver}
+              key={number}
+              className="number-button"
+              onClick={() => handleNumberClick(number)}
+              disabled={showingSequence || gameOver}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-            />
+            >
+              {number}
+            </motion.button>
           ))}
         </div>
       </div>
@@ -201,4 +199,4 @@ const PatternMatch = ({ onComplete, soundEnabled }) => {
   );
 };
 
-export default PatternMatch;
+export default SequenceRecall;

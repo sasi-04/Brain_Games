@@ -91,3 +91,9 @@ The app is now functional with basic navigation. You can:
 
 Enjoy your brain training journey! 🧠✨
 
+
+
+
+
+
+

@@ -12,3 +12,4 @@ const Leaderboard = ({ user, setCurrentView, soundEnabled }) => {
 };
 
 export default Leaderboard;
+
